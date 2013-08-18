@@ -12,18 +12,26 @@ server.bind('tcp://*:' + config.port, function(err) {
 
 var events = config.events;
 
-server.on('message', function(msg) {
-	if (!msg) {
-		return;
-	}
+server.on('message', function(buffer) {
+	var msg = buffer.toString();
 
-	if (events.hasOwnProperty(msg)) {
-		var val = events[msg];
+	console.log('got', msg);
 
-		if (val.type == 'single') {
-			exec('play ' + config.soundDir + val.sound);
+	try {
+		if (msg && events.hasOwnProperty(msg)) {
+			var val = events[msg];
+
+			if (val.type == 'single') {
+				exec('play ' + config.soundDir + val.sound);
+			}
+
+			server.send('OK')
 		}
+	} catch(e) {
+		console.log('ERROR', e);
 	}
+
+	server.send('')
 });
 
 process.on('SIGINT', function() {
