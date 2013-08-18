@@ -2,6 +2,13 @@ module.exports = {
 	port: 5000,
 	soundDir: '../sounds/',
 
+	http: {
+		port: 5001,
+		events: {
+			'ping': 'beep1.wav'
+		}
+	},
+
 	events: {
 		ping: {
 			type: 'single',
@@ -21,11 +28,11 @@ module.exports = {
 		}
 	},
 
-	monitors: {
+	/*monitors: {
 		'http://localhost:8000': {
 			threshold: 5000,
 			bad: 'thunder.wav',
 			good: 'cave.wav'
 		}
-	}
+	}*/
 }
