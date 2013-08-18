@@ -1,4 +1,4 @@
-## tcpmelody
+## tcpjazz
 
 A small app that associates events within your webapp with sound.
 
@@ -6,7 +6,12 @@ A small app that associates events within your webapp with sound.
 
 #### Requirements
 
-tcpmelody is build with Node.js and ZeroMQ. You'll need them.
+You'll need:
+
+* Node.js ([http://nodejs.org/](http://nodejs.org/ "Nodejs")
+* ZeroMQ ([http://zeromq.org/](http://zeromq.org/) "ZeroMQ")
+* Sox `sudo apt-get install sox`
+* Underscore `sudo npm install underscore`
 
 ***
 
@@ -18,15 +23,15 @@ A sample config file is included with the project. Just make the necessary adjus
 
 ***
 
-#### Melody
+#### Jazz
 
 The base class will listen for events over a message queue and play sounds when it receives one it recognizes.
 
 ***
 
-#### HttpMelody
+#### HttpJazz
 
-Like Melody, but over HTTP rather than a message queue. Accepts the event name as a GET parameter named `e`
+Like Jazz, but over HTTP rather than a message queue. Accepts the event name as a GET parameter named `e`
 
 ***
 

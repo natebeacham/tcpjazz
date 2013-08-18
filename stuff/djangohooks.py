@@ -7,11 +7,11 @@ try:
 except ImportError:
 	zmq = None
 
-if getattr(settings, 'MELODY_SERVER') and zmq:
+if getattr(settings, 'JAZZ_SERVER', None) and zmq:
 	context = zmq.Context()
  
 	client = context.socket(zmq.REQ)
-	client.connect('tcp://%s' % settings.MELODY_SERVER)
+	client.connect('tcp://%s' % settings.JAZZ_SERVER)
 else:
 	client = None
 

@@ -2,7 +2,7 @@ var _ = require('underscore');
 var zmq = require('zmq');
 var exec = require('child_process').exec;
 
-var Melody = function(config) {
+var Jazz = function(config) {
 	this.config = config;
 	this.events = config.events;
 	this.socket = zmq.socket('rep');
@@ -12,7 +12,7 @@ var Melody = function(config) {
 	this.bind();
 };
 
-Melody.prototype.bind = function() {
+Jazz.prototype.bind = function() {
 	this.socket.bind('tcp://*:' + this.config.port, function(err) {
 		if (err) {
 			console.log(err);
@@ -22,14 +22,12 @@ Melody.prototype.bind = function() {
 	this.socket.on('message', this.communicate);
 };
 
-Melody.prototype.play = _.throttle(function(sound) {
+Jazz.prototype.play = _.throttle(function(sound) {
 	exec('play ' + this.config.soundDir + sound);
 }, 500);
 
-Melody.prototype.communicate = function(buffer) {
+Jazz.prototype.communicate = function(buffer) {
 	var msg = buffer.toString();
-
-	//console.log('got', msg);
 
 	if (msg && this.events.hasOwnProperty(msg)) {
 		var e = this.events[msg];
@@ -44,8 +42,8 @@ Melody.prototype.communicate = function(buffer) {
 	this.socket.send('')
 };
 
-Melody.prototype.close = function() {
+Jazz.prototype.close = function() {
 	this.socket.close();
 };
 
-module.exports = Melody;
+module.exports = Jazz;

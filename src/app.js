@@ -1,14 +1,14 @@
 var _ = require('underscore');
 
 var config = require('./config/basic');
-var Melody = require('./melody');
-var HttpMelody = require('./httpmelody');
+var Jazz = require('./jazz');
+var HttpJazz = require('./httpjazz');
 var Monitor = require('./monitor');
 
-var server = new Melody(config);
+var server = new Jazz(config);
 
 if (config.http) {
-	new HttpMelody(config);
+	new HttpJazz(config);
 };
 
 if (config.monitors && config.monitors.length) {
