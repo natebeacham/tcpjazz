@@ -15,7 +15,7 @@ var events = config.events;
 server.on('message', function(buffer) {
 	var msg = buffer.toString();
 
-	console.log('got', msg);
+	//console.log('got', msg);
 
 	try {
 		if (msg && events.hasOwnProperty(msg)) {

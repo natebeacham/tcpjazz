@@ -5,7 +5,7 @@ exports.config = {
 	events: {
 		ping: {
 			type: 'single',
-			sound: 'ding.wav'
+			sound: 'beep1.wav'
 		},
 		trash: {
 			type: 'single',
@@ -26,6 +26,10 @@ exports.config = {
 		alarm: {
 			type: 'single',
 			sound: 'alarmclock.wav'
+		},
+		error: {
+			type: 'single',
+			sound: 'uhoh.wav'
 		}
 	}
 }
