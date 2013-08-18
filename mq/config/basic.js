@@ -1,4 +1,4 @@
-exports.config = {
+module.exports = {
 	port: 5000,
 	soundDir: '../sounds/',
 
@@ -15,18 +15,6 @@ exports.config = {
 			type: 'single',
 			sound: 'piano.wav'
 		},
-		siren: {
-			type: 'single',
-			sound: 'siren.wav'
-		},
-		toot: {
-			type: 'single',
-			sound: 'toot.wav'
-		},
-		alarm: {
-			type: 'single',
-			sound: 'alarmclock.wav'
-		},
 		error: {
 			type: 'single',
 			sound: 'uhoh.wav'
@@ -36,7 +24,7 @@ exports.config = {
 	monitors: {
 		'http://localhost:8000': {
 			threshold: 5000,
-			bad: 'siren.wav',
+			bad: 'thunder.wav',
 			good: 'cave.wav'
 		}
 	}
