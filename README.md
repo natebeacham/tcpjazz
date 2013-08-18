@@ -9,7 +9,7 @@ A small app that associates events within your webapp with sound.
 You'll need:
 
 * Node.js ([http://nodejs.org/](http://nodejs.org/ "Nodejs"))
-* ZeroMQ ([http://zeromq.org/](http://zeromq.org/) "ZeroMQ"))
+* ZeroMQ ([http://zeromq.org/](http://zeromq.org/ "ZeroMQ"))
 * Sox `sudo apt-get install sox`
 * Underscore `sudo npm install underscore`
 
