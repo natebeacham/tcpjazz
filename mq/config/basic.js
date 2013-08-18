@@ -31,5 +31,13 @@ exports.config = {
 			type: 'single',
 			sound: 'uhoh.wav'
 		}
+	},
+
+	monitors: {
+		'http://localhost:8000': {
+			threshold: 5000,
+			bad: 'siren.wav',
+			good: 'cave.wav'
+		}
 	}
 }
