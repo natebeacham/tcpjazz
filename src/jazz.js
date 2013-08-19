@@ -23,7 +23,7 @@ Jazz.prototype.bind = function() {
 };
 
 Jazz.prototype.play = _.throttle(function(sound) {
-	exec('play ' + this.config.soundDir + sound);
+	exec('mplayer ' + this.config.soundDir + sound);
 }, 500);
 
 Jazz.prototype.communicate = function(buffer) {

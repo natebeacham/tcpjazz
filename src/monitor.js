@@ -26,8 +26,11 @@ Monitor.prototype.up = function(response) {
 	}
 
 	this.sane = true;
+	this.child = null
 
-	this.child = spawn('play', [this.settings.soundDir + this.config.good, 'repeat']);
+	if (this.config.good) {
+		this.child = spawn('mplayer', ['-really-quiet', '-loop', '0', this.settings.soundDir + this.config.good]);
+	}
 };
 
 Monitor.prototype.down = function(err) {
@@ -42,8 +45,11 @@ Monitor.prototype.down = function(err) {
 	}
 
 	this.sane = false;
+	this.child = null
 
-	this.child = spawn('play', [this.settings.soundDir + this.config.bad, 'repeat']);
+	if (this.config.bad) {
+		this.child = spawn('mplayer', ['-really-quiet', '-loop', '0', this.settings.soundDir + this.config.bad]);
+	}
 };
 
 Monitor.prototype._init = function() {

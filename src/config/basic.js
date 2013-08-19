@@ -10,10 +10,10 @@ module.exports = {
 	},
 
 	events: {
-		ping: {
-			type: 'single',
-			sound: 'beep1.wav'
-		},
+		/*ping: {
+			type: 'single'
+			sound: 'beep.wav'
+		},*/
 		trash: {
 			type: 'single',
 			sound: 'paper.wav'
@@ -28,11 +28,11 @@ module.exports = {
 		}
 	},
 
-	/*monitors: {
+	monitors: {
 		'http://localhost:8000': {
 			threshold: 5000,
-			bad: 'thunder.wav',
+			//bad: 'thunder.wav',
 			good: 'cave.wav'
 		}
-	}*/
+	}
 }

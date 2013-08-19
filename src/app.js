@@ -11,7 +11,7 @@ if (config.http) {
 	new HttpJazz(config);
 };
 
-if (config.monitors && config.monitors.length) {
+if (config.monitors) {
 	_.each(config.monitors, function(val, url) {
 		new Monitor(url, val, config);
 	});

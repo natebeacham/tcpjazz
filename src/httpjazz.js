@@ -21,7 +21,7 @@ HttpJazz.prototype.handle = function(request, response){
 	var params = url.parse(request.url, true).query;
 
 	if (params.e && params.e in this.config.events) {
-		spawn('play', [this.soundDir + this.config.events[params.e]]);
+		spawn('mplayer', [this.soundDir + this.config.events[params.e]]);
 	}
 
 	response.writeHeader(200);
