@@ -5,7 +5,7 @@ var exec = require('child_process').exec;
 var Jazz = function(config) {
 	this.config = config;
 	this.events = config.events;
-	this.socket = zmq.socket('rep');
+	this.socket = zmq.socket('pull');
 
 	_.bindAll(this, 'bind', 'play', 'communicate', 'close');
 
@@ -30,16 +30,18 @@ Jazz.prototype.communicate = function(buffer) {
 	var msg = buffer.toString();
 
 	if (msg && this.events.hasOwnProperty(msg)) {
+
 		var e = this.events[msg];
 
 		if (e.type == 'single') {
 			this.play(e.sound);
 		}
 
-		this.socket.send('OK')
+		this.socket.send('OK');
 	}
-
-	this.socket.send('')
+	else {
+		this.socket.send('OK');
+	}
 };
 
 Jazz.prototype.close = function() {

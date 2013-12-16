@@ -10,10 +10,10 @@ module.exports = {
 	},
 
 	events: {
-		/*ping: {
-			type: 'single'
+		ping: {
+			type: 'single',
 			sound: 'beep.wav'
-		},*/
+		},
 		trash: {
 			type: 'single',
 			sound: 'paper.wav'
